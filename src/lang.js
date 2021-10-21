@@ -2,8 +2,6 @@ var Messages = require('./messages');
 
 require('./lang/en');
 
-var require_method = require;
-
 var container = {
 
   messages: {},
@@ -44,10 +42,8 @@ var container = {
    */
   _load: function(lang) {
     if (!this.messages[lang]) {
-      try {
-        var rawMessages = require_method('./lang/' + lang);
+        var rawMessages = require('./lang/en');
         this._set(lang, rawMessages);
-      } catch (e) {}
     }
   },
 
